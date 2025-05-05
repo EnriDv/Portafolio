@@ -1,4 +1,4 @@
-/* Base styles */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -21,7 +21,6 @@
     color: inherit;
   }
   
-  /* Header styles */
   .site-header {
     position: fixed;
     top: 0;
@@ -67,7 +66,6 @@
     display: none;
   }
   
-  /* Mobile menu */
   .mobile-menu {
     position: fixed;
     top: 0;
@@ -91,12 +89,10 @@
     font-size: 18px;
   }
   
-  /* Main content */
   .main-content {
     padding-top: 80px;
   }
   
-  /* Hero section */
   .hero-section {
     padding: 120px 2rem;
     background-color: #ffffff;
@@ -120,7 +116,6 @@
     max-width: 600px;
   }
   
-  /* Projects section */
   .projects-section {
     padding: 80px 2rem;
   }
@@ -177,7 +172,6 @@
     font-size: 14px;
   }
   
-  /* Articles section */
   .articles-section {
     padding: 80px 2rem;
     background-color: #ffffff;
@@ -220,7 +214,6 @@
     text-transform: uppercase;
   }
   
-  /* About section */
   .about-section {
     padding: 80px 2rem;
   }
@@ -303,7 +296,6 @@
     margin-bottom: 2rem;
   }
   
-  /* Contact section */
   .contact-section {
     padding: 80px 2rem;
     background-color: #ffffff;
@@ -387,7 +379,6 @@
     background-color: #f5f6f7;
   }
   
-  /* Footer */
   .site-footer {
     padding: 40px 2rem;
     background-color: #1a1b22;
@@ -417,7 +408,6 @@
     font-size: 16px;
   }
   
-  /* Media queries */
   @media (min-width: 640px) {
     .projects-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
