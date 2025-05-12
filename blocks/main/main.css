@@ -1,0 +1,204 @@
+/* Block: main (main-content, hero-section, section-container, hero-title, hero-description, projects-section, section-title, projects-grid, project-card, project-image, project-details, project-title, project-description, tag-container, tag, articles-section, articles-grid, article-card, article-date, article-title, article-description, about-section, about-grid, subsection-title, profile-description, skills-list, skill-item, skill-name, hobbies-container, contact-section, contact-grid) */
+.main-content {
+  padding-top: 80px;
+}
+
+.hero-section {
+  padding: 120px 2rem;
+  background-color: #ffffff;
+}
+
+.section-container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-size: 48px;
+  font-weight: 700;
+  max-width: 800px;
+  margin-bottom: 1.5rem;
+}
+
+.hero-description {
+  font-size: 20px;
+  color: #8b8b8b;
+  max-width: 600px;
+}
+
+.projects-section {
+  padding: 80px 2rem;
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 3rem;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.project-image {
+  width: 100%;
+  height: 272px;
+  object-fit: cover;
+}
+
+.project-details {
+  padding: 1.5rem;
+}
+
+.project-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.project-description {
+  font-size: 16px;
+  color: #1a1b22;
+  margin-bottom: 1rem;
+}
+
+.tag-container {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.tag {
+  padding: 0 1px;
+  border-radius: 9999px;
+  background-color: #f5f6f7;
+  font-size: 14px;
+}
+
+.articles-section {
+  padding: 80px 2rem;
+  background-color: #ffffff;
+}
+
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+.article-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.article-date {
+  font-size: 14px;
+  font-weight: 700;
+  color: #b6bcbf;
+  margin-bottom: 1rem;
+}
+
+.article-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.article-description {
+  font-size: 16px;
+  color: #1a1b22;
+  margin-bottom: 1rem;
+}
+
+.about-section {
+  padding: 80px 2rem;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 3rem;
+}
+
+.subsection-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.profile-description {
+  font-size: 16px;
+  color: #1a1b22;
+  margin-bottom: 2rem;
+}
+
+.skills-list {
+  margin-bottom: 2rem;
+}
+
+.skill-item {
+  margin-bottom: 1rem;
+}
+
+.skill-name {
+  font-size: 16px;
+  margin-bottom: 0.5rem;
+}
+
+.hobbies-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.contact-section {
+  padding: 80px 2rem;
+  background-color: #ffffff;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 3rem;
+}
+
+@media (min-width: 640px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .articles-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 768px) {
+  .about-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .contact-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .articles-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-title {
+    font-size: 36px;
+  }
+}
