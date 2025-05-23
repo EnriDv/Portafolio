@@ -8,105 +8,43 @@
       href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="pages/index.css" />
   </head>
   <body>
     <div class="page-container">
       <header class="site-header">
         <div class="header-container">
-          <a href="#" class="logo">Portfolio</a>
+          <a href="#/" class="logo">Portfolio</a>
           <nav class="main-nav">
-            <a class="nav-link" id="nav-home" href="#home">Home</a>
-            <a class="nav-link" id="nav-projects" href="#projects">Projects</a>
-            <a class="nav-link" id="nav-blog" href="#articles">Articles</a>
-            <a class="nav-link" id="nav-about" href="#about">About</a>
-            <a class="nav-link" id="nav-contact" href="#contact">Contact</a>
+            <a class="nav-link" href="#/">Home</a>
+            <a class="nav-link" href="#/projects">Projects</a>
+            <a class="nav-link" href="#/articles">Articles</a>
+            <a class="nav-link" href="#/saved">Saved</a>
+            <a class="nav-link" href="#about">About</a>
+            <a class="nav-link" href="#contact">Contact</a>
           </nav>
-          <button class="menu-toggle" aria-label="Toggle menu">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M3 12H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
-              <path d="M3 6H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
-              <path d="M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
-            </svg>
-          </button>
         </div>
       </header>
-      <div class="mobile-menu" hidden>
-        <div class="mobile-menu-container">
-          <a class="mobile-nav-link" id="mobile-nav-home" href="#home">Home</a>
-          <a class="mobile-nav-link" id="mobile-nav-projects" href="#projects">Projects</a>
-          <a class="mobile-nav-link" id="mobile-nav-blog" href="#articles">Articles</a>
-          <a class="mobile-nav-link" id="mobile-nav-about" href="#about">About</a>
-          <a class="mobile-nav-link" id="mobile-nav-contact" href="#contact">Contact</a>
-        </div>
-      </div>
+
       <main class="main-content">
+        <!-- HOME -->
         <section id="home" class="hero-section">
           <div class="section-container">
             <h1 class="hero-title">Jose Enrique Diaz Velarde</h1>
-            <p class="hero-description">Front End Designer | Angular | .NET | Agile Methodology | Software Engineering Student</p>
+            <p class="hero-description">
+              Front End Designer | Angular | .NET | Agile Methodology | Software
+              Engineering Student
+            </p>
             <p class="hero-description">Santa Cruz, Bolivia</p>
           </div>
         </section>
-        <section id="projects" class="projects-section">
-          <div class="section-container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
-              <article class="project-card">
-                <a href="https://github.com/DanyElAlgo/Disco-stage-diorama" target="_blank">
-                  <img src="https://placehold.co/400x272" alt="Disco-stage-diorama" class="project-image" />
-                  <div class="project-details">
-                    <h3 class="project-title">Disco Stage Diorama</h3>
-                    <p class="project-description">A stage diorama visualization built with Three.js and custom shaders</p>
-                  </div>
-                </a>
-              </article>
-              <article class="project-card">
-                <a href="https://github.com/EnriDv/BuscaMinas-EnriqueDiaz" target="_blank">
-                  <img src="https://placehold.co/400x272" alt="BuscaMinas" class="project-image" />
-                  <div class="project-details">
-                    <h3 class="project-title">Busca Minas</h3>
-                    <p class="project-description">Classic minesweeper game implemented in JavaScript and HTML5 Canvas</p>
-                  </div>
-                </a>
-              </article>
-              <article class="project-card">
-                <a href="https://github.com/EnriDv/Inventario" target="_blank">
-                  <img src="https://placehold.co/400x272" alt="Inventario" class="project-image" />
-                  <div class="project-details">
-                    <h3 class="project-title">Inventario</h3>
-                    <p class="project-description">Inventory management system using Python and SQLite</p>
-                  </div>
-                </a>
-              </article>
-            </div>
-          </div>
-        </section>
-        <section id="articles" class="articles-section">
-          <div class="section-container">
-            <h2 class="section-title">Latest Articles</h2>
-            <div class="articles-grid">
-              <article class="article-card">
-                <time class="article-date">March 20, 2025</time>
-                <h3 class="article-title">Microsoft Majorana 1</h3>
-                <p class="article-description">The possibilities are insane. This could change computing as we know it.</p>
-                <a class="read-more" href="https://www.linkedin.com/feed/update/urn:li:activity:7299524815516807168/" target="_blank">Leer artículo</a>
-              </article>
-              <article class="article-card">
-                <time class="article-date">April 5, 2025</time>
-                <h3 class="article-title">Vibe Coding</h3>
-                <p class="article-description">Una Nueva Era en la Ingeniería de Software.</p>
-                <a class="read-more" href="https://www.linkedin.com/feed/update/urn:li:activity:7312321735331106816/" target="_blank">Leer artículo</a>
-              </article>
-              <article class="article-card">
-                <time class="article-date">April 10, 2025</time>
-                <h3 class="article-title">RF-Pose</h3>
-                <p class="article-description">La combinación de inteligencia artificial y señales inalámbricas.</p>
-                <a class="read-more" href="https://www.linkedin.com/feed/update/urn:li:activity:7322446822579281920/" target="_blank">Leer artículo</a>
-              </article>
-            </div>
-          </div>
-        </section>
+
+        <section id="projects-container"></section>
+
+        <section id="articles-container"></section>
+
+        <section id="saved-container"></section>
+
         <section id="about" class="about-section">
           <div class="section-container">
             <h2 class="section-title">About Me</h2>
@@ -146,6 +84,7 @@
             </div>
           </div>
         </section>
+
         <section id="contact" class="contact-section">
   <div class="section-container">
     <h2 class="section-title">Contact Me</h2>
@@ -222,9 +161,12 @@
   </div>
 </section>
       </main>
+
       <footer class="site-footer">
         <div class="footer-container">
-          <p class="copyright">© 2025 Jose Enrique Diaz Velarde. All rights reserved.</p>
+          <p class="copyright">
+            ©️ 2025 Jose Enrique Diaz Velarde. All rights reserved.
+          </p>
           <div class="footer-links">
             <a href="#" class="footer-link">Privacy Policy</a>
             <a href="#" class="footer-link">Terms of Service</a>
@@ -232,6 +174,34 @@
         </div>
       </footer>
     </div>
-    <script src="script.js"></script>
+
+    <template id="project-template">
+      <article class="project-card">
+        <a target="_blank">
+          <img class="project-image" />
+          <div class="project-details">
+            <h3 class="project-title"></h3>
+            <p class="project-description"></p>
+          </div>
+        </a>
+      </article>
+    </template>
+
+    <template id="article-template">
+      <article class="article-card">
+        <time class="article-date"></time>
+        <h3 class="article-title"></h3>
+        <p class="article-description"></p>
+        <div class="article-actions">
+          <button class="save-btn" title="Guardar artículo">📌</button>
+          <button class="like-btn" title="Me gusta">
+            👍 <span class="like-count">0</span>
+          </button>
+        </div>
+        <a class="read-more" target="_blank">Leer artículo</a>
+      </article>
+    </template>
+
+    <script type="module" src="index.js"></script>
   </body>
 </html>
