@@ -29,7 +29,7 @@ class ArticleModel {
 Object.assign(ArticleModel.prototype, observerMixin);
 
 async function renderProjects() {
-  const res = await fetch('js/fakedata.json');
+  const res = await fetch('fakedata.json');
   const { projects } = await res.json();
   const container = DOM.projectsContainer;
   container.innerHTML = '<h2 class="section-title">Featured Projects</h2><div class="projects-grid"></div>';
@@ -49,7 +49,7 @@ async function renderProjects() {
 }
 
 async function renderArticles() {
-  const res = await fetch('js/fakedata.json');
+  const res = await fetch('fakedata.json');
   const { articles } = await res.json();
   const container = DOM.articlesContainer;
   container.innerHTML = '<h2 class="section-title">Latest Articles</h2><div class="articles-grid"></div>';
@@ -90,7 +90,7 @@ async function renderArticles() {
 }
 
 async function renderSaved() {
-  const res = await fetch('js/fakedata.json');
+  const res = await fetch('fakedata.json');
   const { articles } = await res.json();
   const container = DOM.savedContainer;
   container.innerHTML = '<h2 class="section-title">Artículos guardados</h2><div class="articles-grid"></div>';
