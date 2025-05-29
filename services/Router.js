@@ -27,7 +27,7 @@ export const Router = {
         break;
 
       case "#/projects": {
-        const { renderProjects } = await import("./renderprojects.js");
+        const { renderProjects } = await import("../pages/renderprojects.js");
         renderProjects();
         break;
       }

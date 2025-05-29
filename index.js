@@ -1,7 +1,7 @@
 // js/index.js
 import { observerMixin } from './services/mixins.js';
 import { TodoList, TodoItem } from './services/todoList.js';
-import { LocalStorage } from './services/localStorage.js';
+import { LocalStorage } from './services/storage.js';
 
 // Exponemos contenedores en globalThis.DOM
 globalThis.DOM = {
