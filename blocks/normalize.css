@@ -1,10 +1,10 @@
-/* Block: base (reset, tipografía, utilidades) */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+/* Estilos base */
 body {
   font-family: "Inter", sans-serif;
   background-color: #f5f6f7;
@@ -13,10 +13,4 @@ body {
 a {
   text-decoration: none;
   color: inherit;
-}
-
-.page-container {
-  min-height: 100vh;
-  width: 100vw;
-  background-color: #f5f6f7;
 }
