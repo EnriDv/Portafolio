@@ -1,7 +1,12 @@
 const template = document.createElement("template");
 template.innerHTML = 
 `
-<input type= "text" >
+<div class="searchbar">
+    <input type= "text" id="searchbar">
+    <button id="search">
+        <span">&#10137</span>
+    </button>
+<div>
 `
 
 export class searchbar extends HTMLElement {
@@ -12,7 +17,6 @@ export class searchbar extends HTMLElement {
     this.root.appendChild(template.content.cloneNode(true));
     
     const styles = document.createElement("style");
-
   }
 
   connectedCallback() {
