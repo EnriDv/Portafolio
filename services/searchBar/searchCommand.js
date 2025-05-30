@@ -11,6 +11,7 @@ export class SearchCommand {
 
 export const SearchCommands = {
     ADD: "add",
+    DELETE: "delete",
     SEARCH: "search",
     FOCUS: "focus",
 };
@@ -30,14 +31,17 @@ export const SearchCommandExecutor = {
             case SearchCommands.ADD:
                 const todoInput = globalThis.DOM.todoInput;
                 const todoText = todoInput.value.trim();
-                const todoExist = list.find(todoText);
-                if (todoExist == undefined && todoText !== "") {
-                    list.add(new Item(todoText));
-                    todoInput.value = "";
+                const todoToAdd = list.find(todoText);
+
+                if (todoText !== "" && todoToAdd == undefined) {
+                list.add(new Item(todoText));
+                todoInput.value = "";
                 }
                 break;
-            case Commands.DELETE:
-            break;
+            case SearchCommands.DELETE:
+                const [texTodo] = command.args;
+                todoList.delete(texTodo);
+                break;
         }
     }
 

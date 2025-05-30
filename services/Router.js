@@ -18,7 +18,7 @@ const Router = {
     if (addToHistory) history.pushState({ route }, "", route);
     let pageEl = null;
     switch (route) {
-      case "/":
+      case "/home":
         pageEl = document.createElement("home-page");
         break;
       case "/all":

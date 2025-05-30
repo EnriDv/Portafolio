@@ -20,24 +20,24 @@ function renderList() {
   const todos = List.getInstance();
   DOM.todoList.innerHTML = "";
   for (let todo of todos.items) {
-    const Item = document.createElement("li");
-    Item.className = "todo-item";
-    Item.innerHTML = `${todo.text} 
+    const listItem = document.createElement("li");
+    listItem.className = "todo-item";
+    listItem.innerHTML = `${todo.text} 
                 <button class="delete-btn">Delete</button>`;
-    Item.dataset.text = todo.text;
-    DOM.todoList.appendChild(Item);
+    listItem.dataset.text = todo.text;
+    DOM.todoList.appendChild(listItem);
   }
 }
-
 
 document.addEventListener("DOMContentLoaded", () => {
   initializeBlog();
   app.router.init()
 
   DOM.todoList = document.getElementById("todo-list");
+  DOM.addBtn = document.getElementById("add-btn");
   DOM.todoInput = document.getElementById("todo-input");
 
-  document.getElementById("add-btn").addEventListener("click", () => {
+    DOM.addBtn.addEventListener("click", () => {
     const cmd = new SearchCommand(SearchCommands.ADD);
     SearchCommandExecutor.execute(cmd);
   });
