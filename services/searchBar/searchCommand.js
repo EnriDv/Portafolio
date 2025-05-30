@@ -1,4 +1,4 @@
-import { List } from "../itemList/ItemList.js";
+import { List, Item } from "../itemList/ItemList.js";
 
 export class SearchCommand {
     name;
@@ -32,7 +32,7 @@ export const SearchCommandExecutor = {
                 const todoText = todoInput.value.trim();
                 const todoExist = list.find(todoText);
                 if (todoExist == undefined && todoText !== "") {
-                    list.add(new TodoItem(todoText));
+                    list.add(new Item(todoText));
                     todoInput.value = "";
                 }
                 break;

@@ -7,8 +7,8 @@ import { HomePage } from "./pages/home-page.js";
 import { ArticlesList } from "./pages/articles-page.js";
 import { searchbar } from "./services/searchBar/search-bar.js";
 import { SearchCommand, SearchCommandExecutor, SearchCommands } from "./services/searchBar/searchCommand.js";
-
 import { List, Item } from "./services/itemList/ItemList.js";
+import { LocalStorage } from "./services/storage.js";
 
 globalThis.app = {};
 globalThis.DOM = {};
