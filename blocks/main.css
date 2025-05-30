@@ -175,6 +175,59 @@
   gap: 3rem;
 }
 
+/* Botón de guardar (azul minimalista) */
+.savebtn {
+  background: transparent;
+  border: 1px solid #d0d7e2;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+.savebtn--active {
+  background: #e6f0ff;
+  border-color: #86b7fe;
+}
+.savebtn__icon {
+  font-size: 20px;
+  color: #888;
+  transition: color 0.2s;
+}
+.savebtn--active .savebtn__icon {
+  color: #1d4ed8; /* azul intenso (similar a Tailwind blue-700) */
+}
+
+
+/* Botón de "me gusta" (minimalista) */
+.likebtn {
+  background: transparent;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+.likebtn--active {
+  background: #fceeee;
+  border-color: #f5b5b5;
+}
+.likebtn__icon {
+  font-size: 20px;
+  color: #999;
+  transition: color 0.2s;
+}
+.likebtn--active .likebtn__icon {
+  color: #e74c3c; /* rojo tenue */
+}
+.likebtn__count {
+  margin-left: 6px;
+  font-size: 14px;
+  color: #555;
+}
+
+
 @media (min-width: 640px) {
   .projects-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
