@@ -5,6 +5,8 @@ import { initializeBlog } from "./blocks/blog/blog.js";
 import { ProjectSection } from "./blocks/projects/renderProject.js";
 import { HomePage } from "./pages/home-page.js";
 import { ArticlesList } from "./pages/articles-page.js";
+import { searchbar } from "./services/searchBar/search-bar.js";
+
 
 globalThis.app = {};
 app.router = Router;
