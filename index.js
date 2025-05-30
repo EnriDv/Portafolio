@@ -11,14 +11,10 @@ import { SearchCommand, SearchCommandExecutor, SearchCommands } from "./services
 import { List, Item } from "./services/itemList/ItemList.js";
 
 globalThis.app = {};
+globalThis.DOM = {};
+
 const DOM = globalThis.DOM;
 app.router = Router;
-
-window.addEventListener('DOMContentLoaded', () => {
-  initializeBlog();
-  app.router.init()
-});
-
 
 function renderList() {
   const todos = List.getInstance();
@@ -35,16 +31,18 @@ function renderList() {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-  DOM.TodoList = document.getElementById("todo-list");
-  DOM.addBtn = document.getElementById("add-btn");
+  initializeBlog();
+  app.router.init()
+
+  DOM.todoList = document.getElementById("todo-list");
   DOM.todoInput = document.getElementById("todo-input");
 
-  DOM.addBtn.addEventListener("click", () => {
+  document.getElementById("add-btn").addEventListener("click", () => {
     const cmd = new SearchCommand(SearchCommands.ADD);
     SearchCommandExecutor.execute(cmd);
   });
 
-  DOM.List.addEventListener("click", (event) => {
+  DOM.todoList.addEventListener("click", (event) => {
     if (event.target.classList.contains("delete-btn")) {
       const todo = event.target.parentNode.dataset.text;
     const cmd = new SearchCommand(SearchCommands.DELETE);

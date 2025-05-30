@@ -24,6 +24,7 @@ export const SearchCommandExecutor = {
                 inputElement.focus();
                 break;
             case SearchCommands.SEARCH:
+                
                 alert("buscar" + command.args);
                 console.error(list.find(command.args))
             case SearchCommands.ADD:
