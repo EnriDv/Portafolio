@@ -6,12 +6,67 @@ import { ProjectSection } from "./blocks/projects/renderProject.js";
 import { HomePage } from "./pages/home-page.js";
 import { ArticlesList } from "./pages/articles-page.js";
 import { searchbar } from "./services/searchBar/search-bar.js";
+import { SearchCommand, SearchCommandExecutor, SearchCommands } from "./services/searchBar/searchCommand.js";
 
+import { List, Item } from "./services/itemList/ItemList.js";
 
 globalThis.app = {};
+const DOM = globalThis.DOM;
 app.router = Router;
 
 window.addEventListener('DOMContentLoaded', () => {
   initializeBlog();
   app.router.init()
+});
+
+
+function renderList() {
+  const todos = List.getInstance();
+  DOM.todoList.innerHTML = "";
+  for (let todo of todos.items) {
+    const Item = document.createElement("li");
+    Item.className = "todo-item";
+    Item.innerHTML = `${todo.text} 
+                <button class="delete-btn">Delete</button>`;
+    Item.dataset.text = todo.text;
+    DOM.todoList.appendChild(Item);
+  }
+}
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  DOM.TodoList = document.getElementById("todo-list");
+  DOM.addBtn = document.getElementById("add-btn");
+  DOM.todoInput = document.getElementById("todo-input");
+
+  DOM.addBtn.addEventListener("click", () => {
+    const cmd = new SearchCommand(SearchCommands.ADD);
+    SearchCommandExecutor.execute(cmd);
+  });
+
+  DOM.List.addEventListener("click", (event) => {
+    if (event.target.classList.contains("delete-btn")) {
+      const todo = event.target.parentNode.dataset.text;
+    const cmd = new SearchCommand(SearchCommands.DELETE);
+    SearchCommandExecutor.execute(cmd);
+    }
+  });
+
+  LocalStorage.load();
+
+  renderList();
+  List.getInstance().addObserver(renderList);
+});
+
+document.addEventListener("keydown", function (event) {
+  if (event.ctrlKey && event.key === "k") {
+    event.preventDefault();
+    const cmd = new SearchCommand(SearchCommands.FOCUS);
+    SearchCommandExecutor.execute(cmd);
+  }
+  if (event.ctrlKey && event.key === "f") {
+    event.preventDefault();
+    const cmd = new SearchCommand(SearchCommands.ADD);
+    SearchCommandExecutor.execute(cmd);
+  }
 });

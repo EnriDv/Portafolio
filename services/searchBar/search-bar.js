@@ -1,8 +1,10 @@
+import { SearchCommand, SearchCommandExecutor, SearchCommands } from "./searchCommand.js";
+
 const template = document.createElement("template");
 template.innerHTML = 
 `
-<div class="searchbar">
-    <input type= "text" id="searchbar">
+<div id="searchbar">
+    <input type= "text">
     <button id="search">
         <span">&#10137</span>
     </button>
@@ -20,7 +22,20 @@ export class searchbar extends HTMLElement {
   }
 
   connectedCallback() {
-    
+
+    document.querySelector("div").addEventListener("click", (event) => {
+        console.error(event)
+        if(event.target.tagName.toLowerCase() == "search-bar")
+        {
+            console.error(event.target);
+            const cmd = new SearchCommand(SearchCommands.SEARCH, {});
+            SearchCommandExecutor.execute(cmd);
+        }
+        else
+        {
+            console.error(event.target.tagName.toLowerCase());
+        }
+    });
   }
 }
 

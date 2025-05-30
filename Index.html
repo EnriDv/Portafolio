@@ -35,7 +35,14 @@
       </header>
       <main style="padding-bottom: 20px; padding-top: 100px;">
         
-       
+       <main id="container" class="main">
+        <div class="container">
+          <h1> List</h1>
+          <input type="text" id="todo-input" placeholder="Add a new task" />
+          <button id="add-btn">Add</button>
+          <ul id="todo-list" class="todo-list"></ul>
+        </div>
+      </main>
 
       </main>
       <footer class="site-footer">
@@ -51,7 +58,15 @@
     <script src="./index.js"></script>
   </body>
 
-
+<template id="card__template">
+      <article class="card">
+        <h3 class="card__title"></h3>
+        <div class="card__body">
+          <div class="card__body__image"></div>
+          <section class="card__body__content"></section>
+        </div>
+      </article>
+    </template>
 
     
 </html>
