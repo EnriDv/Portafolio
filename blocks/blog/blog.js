@@ -8,7 +8,9 @@ function renderInitialPosts() {
   DOM.blogList.innerHTML = "";
 
   for (const post of blogList.items) {
-    const savedState = localStorage.getItem(`post_${post.id}`);
+    
+    const savedState = localStorage.getItem(`post_${post.id}`); //Local Storage
+    
     const isSaved = savedState != null;
 
     const item = document.createElement("article");
@@ -39,11 +41,11 @@ function attachBlogListeners() {
     const isSaved = button.classList.contains("blog__save--saved");
 
     if (isSaved) {
-      localStorage.removeItem(`post_${id}`);
-      button.classList.remove("blog__save--saved");
+      localStorage.removeItem(`post_${id}`); //local storage
+      button.classList.remove("blog__save--saved"); 
       button.textContent = "Save";
     } else {
-      localStorage.setItem(`post_${id}`, desc);
+      localStorage.setItem(`post_${id}`, desc); //local storage
       button.classList.add("blog__save--saved");
       button.textContent = "Saved";
 
