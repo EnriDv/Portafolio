@@ -30,7 +30,7 @@ const Router = {
       case "/projects":
         pageEl = document.createElement("project-section");
         break;
-      case "/":
+      case "/articles":
         pageEl = document.createElement("articles-page");
         break;
       default:

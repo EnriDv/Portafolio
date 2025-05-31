@@ -1,4 +1,4 @@
-import { List, Item } from "../services/itemList/ItemList";
+import { List, Item } from "../services/itemList/ItemList.js";
 
 export class ArticlesManager extends HTMLElement {
   constructor() {
@@ -61,7 +61,7 @@ export class ArticlesManager extends HTMLElement {
     const url         = this.urlInput.value.trim();
     const list        = List.getInstance();
 
-    if (date && title && description && url && !list.find(url)) {
+    if (date && title && description && url && !list.findByUrl(url)) {
       const item = new Item({ date, title, description, url });
       list.add(item);
       this.dateInput.value =
@@ -73,7 +73,7 @@ export class ArticlesManager extends HTMLElement {
 
   handleDelete(url) {
     const list = List.getInstance();
-    const item = list.find(url);
+    const item = list.findByUrl(url);
     if (item) list.delete(item);
   }
 

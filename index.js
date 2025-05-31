@@ -18,7 +18,6 @@ const DOM = globalThis.DOM;
 app.router = Router;
 app.projects = {};
 app.articles = {};
-appState.favoriteItems = {};
 
 window.addEventListener("DOMContentLoaded", () => {
   loadData();
