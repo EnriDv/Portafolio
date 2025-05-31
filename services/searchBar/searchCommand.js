@@ -21,17 +21,16 @@ export const SearchCommandExecutor = {
         const list = List.getInstance();
         switch (command.name) {
             case SearchCommands.FOCUS:
-                const inputElement = document.getElementById("searchbar");
-                inputElement.focus();
-                break;
+                const inputElement = document.querySelector("search-bar");
+                inputElement.focusInside();
+                break;  
             case SearchCommands.SEARCH:
                 
-                alert("buscar" + command.args);
-                console.error(list.find(command.args))
+                alert("buscar " + command.args);
             case SearchCommands.ADD:
                 const todoInput = globalThis.DOM.todoInput;
                 const todoText = todoInput.value.trim();
-                const todoToAdd = list.find(todoText);
+                const todoToAdd = list.findByUrl(todoText);
 
                 if (todoText !== "" && todoToAdd == undefined) {
                 list.add(new Item(todoText));

@@ -5,7 +5,7 @@ import { initializeBlog } from "./blocks/blog/blog.js";
 import { ProjectSection } from "./blocks/projects/renderProject.js";
 import { HomePage } from "./pages/home-page.js";
 import {ArticlesPage} from "./pages/articles-page.js";
-import { searchbar } from "./services/searchBar/search-bar.js";
+import { SearchBar } from "./services/searchBar/search-bar.js";
 import { SearchCommand, SearchCommandExecutor, SearchCommands } from "./services/searchBar/searchCommand.js";
 import { LocalStorage } from "./services/storage.js";
 import { loadData } from "./services/dataLoader.js";
