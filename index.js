@@ -9,12 +9,17 @@ import { searchbar } from "./services/searchBar/search-bar.js";
 import { SearchCommand, SearchCommandExecutor, SearchCommands } from "./services/searchBar/searchCommand.js";
 import { List, Item } from "./services/itemList/ItemList.js";
 import { LocalStorage } from "./services/storage.js";
+import { loadData } from "./services/dataLoader.js";
+
 
 globalThis.app = {};
 globalThis.DOM = {};
 
 const DOM = globalThis.DOM;
 app.router = Router;
+app.projects = {};
+app.articles = {};
+appState.favoriteItems = {};
 
 function renderList() {
   const todos = List.getInstance();
@@ -30,6 +35,7 @@ function renderList() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  loadData();
   initializeBlog();
   app.router.init()
 
