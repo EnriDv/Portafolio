@@ -25,7 +25,7 @@ const Router = {
         pageEl = document.createElement("all-page");
         break;
       case "/saved":
-        pageEl = document.createElement("saved-page");
+        pageEl = document.createElement("saved-articles-page");
         break;
       case "/projects":
         pageEl = document.createElement("project-section");

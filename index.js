@@ -9,6 +9,7 @@ import { searchbar } from "./services/searchBar/search-bar.js";
 import { SearchCommand, SearchCommandExecutor, SearchCommands } from "./services/searchBar/searchCommand.js";
 import { LocalStorage } from "./services/storage.js";
 import { loadData } from "./services/dataLoader.js";
+import { SavedArticlesPage } from "./pages/saved-articles-page.js";
 
 
 globalThis.app = {};

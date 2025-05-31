@@ -1,4 +1,6 @@
 import { List, Item } from "../services/itemList/ItemList.js";
+import { SavedList } from "../services/itemList/savedList.js";
+
 const template = document.createElement("template");
 template.innerHTML = `
   <div class="articles-grid" id="articulos-item"></div>
@@ -75,11 +77,18 @@ export default class ArticleItem extends HTMLElement {
     saveBtn.className = "savebtn";
     saveBtn.innerHTML = `<span class="savebtn__icon">&#x2606;</span>`;
     if (this.memento.saved[idx]) saveBtn.classList.add("savebtn--active");
+
     saveBtn.addEventListener("click", () => {
-      this.memento.saved[idx] = !this.memento.saved[idx];
-      saveBtn.classList.toggle("savebtn--active", this.memento.saved[idx]);
-      localStorage.setItem("proyectosMemento", JSON.stringify(this.memento));
+        this.memento.saved[idx] = !this.memento.saved[idx];
+        saveBtn.classList.toggle("savebtn--active", this.memento.saved[idx]);
+        if (this.memento.saved[idx]) {
+            SavedList.getInstance().add(article);
+        } else {
+            SavedList.getInstance().delete(article);
+        }
+        localStorage.setItem("proyectosMemento", JSON.stringify(this.memento));
     });
+    
 
     const deleteBtn = document.createElement("button");
     deleteBtn.className = "delete-btn";
