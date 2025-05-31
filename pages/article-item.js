@@ -1,4 +1,4 @@
-// articles-list.js
+import { List, Item } from "../services/itemList/ItemList.js";
 const template = document.createElement("template");
 template.innerHTML = `
   <div class="articles-grid" id="articulos-item"></div>
@@ -8,19 +8,22 @@ export default class ArticleItem extends HTMLElement {
   constructor() {
     super();
     this.root = this.attachShadow({ mode: "open" });
-    this.container = this.root.getElementById("articulos-item");
+    this.root.appendChild(template.content.cloneNode(true));
+    this.container = this.root.querySelector("#articulos-item");
     this.root.appendChild(this.container);
-    this.styles = document.createElement("style");
-    this.root.appendChild(this.styles);
+    const styles = document.createElement("style");
+    this.root.appendChild(styles);
+    (async () => {
+      try {
+        const res = await fetch("/pages/index.css");
+        styles.textContent = await res.text();
+      } catch (e) {
+        console.warn("No se pudo cargar CSS:", e);
+      }
+    })();
   }
 
   async connectedCallback() {
-    try {
-      const resp = await fetch("/pages/index.css");
-      this.styles.textContent = await resp.text();
-    } catch (e) {
-      console.warn("No se pudo cargar CSS:", e);
-    }
 
     this.memento = JSON.parse(
       localStorage.getItem("proyectosMemento")
@@ -78,7 +81,16 @@ export default class ArticleItem extends HTMLElement {
       localStorage.setItem("proyectosMemento", JSON.stringify(this.memento));
     });
 
-    btnContainer.append(likeBtn, saveBtn);
+    const deleteBtn = document.createElement("button");
+    deleteBtn.className = "delete-btn";
+    deleteBtn.textContent = "Delete";
+    deleteBtn.addEventListener("click", () => {
+      const list = List.getInstance();
+      list.delete(article);
+      window.dispatchEvent(new CustomEvent("articleschange"));
+    });
+
+    btnContainer.append(likeBtn, saveBtn, deleteBtn);
     card.appendChild(btnContainer);
     this.container.appendChild(card);
   }
