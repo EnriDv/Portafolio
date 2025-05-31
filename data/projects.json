@@ -1,5 +1,5 @@
 {
-  "projects": [
+    "projects": [
     {
       "title": "Disco Stage Diorama",
       "description": "A stage diorama visualization built with Three.js and custom shaders",
@@ -20,26 +20,6 @@
       "image": "https://placehold.co/400x272",
       "alt": "Inventario",
       "url": "https://github.com/EnriDv/Inventario"
-    }
-  ],
-  "articles": [
-    {
-      "date": "March 20, 2025",
-      "title": "Microsoft Majorana 1",
-      "description": "The possibilities are insane. This could change computing as we know it.",
-      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7299524815516807168/"
-    },
-    {
-      "date": "April 5, 2025",
-      "title": "Vibe Coding",
-      "description": "Una Nueva Era en la Ingeniería de Software.",
-      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7312321735331106816/"
-    },
-    {
-      "date": "April 10, 2025",
-      "title": "RF-Pose",
-      "description": "La combinación de inteligencia artificial y señales inalámbricas.",
-      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7322446822579281920/"
     }
   ]
 }

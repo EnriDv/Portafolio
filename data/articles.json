@@ -1,0 +1,142 @@
+{
+  "articles": [
+    {
+      "date": "March 20, 2025",
+      "title": "Microsoft Majorana 1",
+      "description": "The possibilities are insane. This could change computing as we know it.",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7299524815516807168/"
+    },
+    {
+      "date": "April 5, 2025",
+      "title": "Vibe Coding",
+      "description": "Una Nueva Era en la Ingeniería de Software.",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7312321735331106816/"
+    },
+    {
+      "date": "April 10, 2025",
+      "title": "RF-Pose",
+      "description": "La combinación de inteligencia artificial y señales inalámbricas.",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7322446822579281920/"
+    },
+    {
+      "date": "May 1, 2025",
+      "title": "Edge AI: Beyond the Cloud",
+      "description": "Processing data locally for faster insights and enhanced privacy.",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7330000000000000001/"
+    },
+    {
+      "date": "May 15, 2025",
+      "title": "Quantum Computing's Next Leap",
+      "description": "Exploring the latest breakthroughs in quantum algorithms and hardware.",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7330000000000000002/"
+    },
+    {
+      "date": "May 28, 2025",
+      "title": "Blockchain in Supply Chain",
+      "description": "Revolutionizing transparency and traceability from farm to table.",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7330000000000000003/"
+    },
+    {
+      "date": "June 3, 2025",
+      "title": "The Metaverse: More Than Just Gaming",
+      "description": "How virtual worlds are transforming education, work, and social interaction.",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7330000000000000004/"
+    },
+    {
+      "date": "June 18, 2025",
+      "title": "Neuro-Symbolic AI: Bridging the Gap",
+      "description": "Combining deep learning with symbolic reasoning for more robust AI.",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7330000000000000005/"
+    },
+    {
+      "date": "July 1, 2025",
+      "title": "Sustainable Tech: Green Innovations",
+      "description": "Tech companies leading the charge in environmental sustainability.",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7330000000000000006/"
+    },
+    {
+      "date": "July 14, 2025",
+      "title": "CRISPR Beyond Gene Editing",
+      "description": "New applications of CRISPR technology in diagnostics and therapy.",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7330000000000000007/"
+    },
+    {
+      "date": "July 29, 2025",
+      "title": "The Future of Work: AI and Automation",
+      "description": "How AI is reshaping jobs and the skills needed for tomorrow.",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7330000000000000008/"
+    },
+    {
+      "date": "August 5, 2025",
+      "title": "Personalized Medicine: A Data-Driven Approach",
+      "description": "Tailoring treatments based on individual genetic and lifestyle data.",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7330000000000000009/"
+    },
+    {
+      "date": "August 20, 2025",
+      "title": "Cybersecurity in the Quantum Age",
+      "description": "Protecting data from future quantum threats.",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7330000000000000010/"
+    },
+    {
+      "date": "September 2, 2025",
+      "title": "No-Code/Low-Code Platforms Thrive",
+      "description": "Empowering citizen developers to build applications faster.",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7330000000000000011/"
+    },
+    {
+      "date": "September 16, 2025",
+      "title": "Synthetic Media and Deepfakes: The Ethical Dilemma",
+      "description": "Navigating the complexities of AI-generated content.",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7330000000000000012/"
+    },
+    {
+      "date": "October 1, 2025",
+      "title": "Space Tech: The New Frontier",
+      "description": "Innovations in satellite technology and space exploration.",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7330000000000000013/"
+    },
+    {
+      "date": "October 15, 2025",
+      "title": "Human-Computer Interaction: Beyond the Screen",
+      "description": "Exploring haptic feedback, brain-computer interfaces, and more.",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7330000000000000014/"
+    },
+    {
+      "date": "October 28, 2025",
+      "title": "Generative AI in Creativity",
+      "description": "How AI is assisting artists, musicians, and writers in new ways.",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7330000000000000015/"
+    },
+    {
+      "date": "November 4, 2025",
+      "title": "Digital Twins: Real-World Applications",
+      "description": "Creating virtual replicas for predictive maintenance and simulations.",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7330000000000000016/"
+    },
+    {
+      "date": "November 19, 2025",
+      "title": "Explainable AI (XAI): Building Trust",
+      "description": "Making AI decisions transparent and understandable.",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7330000000000000017/"
+    },
+    {
+      "date": "December 3, 2025",
+      "title": "The Rise of Decentralized Finance (DeFi)",
+      "description": "Reshaping financial systems with blockchain technology.",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7330000000000000018/"
+    },
+    {
+      "date": "December 17, 2025",
+      "title": "Robotics in Healthcare: Assisting Caregivers",
+      "description": "From surgical robots to companion bots for the elderly.",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7330000000000000019/"
+    },
+    {
+      "date": "January 5, 2026",
+      "title": "Bio-Inspired Computing: Learning from Nature",
+      "description": "Developing algorithms and hardware inspired by biological systems.",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7330000000000000020/"
+    }
+  ]
+}
