@@ -31,7 +31,7 @@ const Router = {
         pageEl = document.createElement("project-section");
         break;
       case "/articles":
-        pageEl = document.createElement("articles-list");
+        pageEl = document.createElement("articles-page");
         break;
       default:
         pageEl = document.createElement("h1");

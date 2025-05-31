@@ -4,7 +4,7 @@ import {AllPage, SavedPage} from "./pages/pages.js";
 import { initializeBlog } from "./blocks/blog/blog.js";
 import { ProjectSection } from "./blocks/projects/renderProject.js";
 import { HomePage } from "./pages/home-page.js";
-import { ArticlesList } from "./pages/articles-page.js";
+import {ArticlesPage} from "./pages/articles-page.js";
 import { searchbar } from "./services/searchBar/search-bar.js";
 import { SearchCommand, SearchCommandExecutor, SearchCommands } from "./services/searchBar/searchCommand.js";
 import { List, Item } from "./services/itemList/ItemList.js";
@@ -21,6 +21,13 @@ app.projects = {};
 app.articles = {};
 appState.favoriteItems = {};
 
+window.addEventListener("DOMContentLoaded", () => {
+  loadData();
+  initializeBlog();
+  app.router.init();
+});
+  
+
 function renderList() {
   const todos = List.getInstance();
   DOM.todoList.innerHTML = "";
@@ -35,9 +42,7 @@ function renderList() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  loadData();
-  initializeBlog();
-  app.router.init()
+
 
   DOM.todoList = document.getElementById("todo-list");
   DOM.addBtn = document.getElementById("add-btn");

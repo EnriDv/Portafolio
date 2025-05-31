@@ -1,13 +1,18 @@
-import "../data/projects.json"
 export const API = {
-  url1: "../data/articles.json",
-  url2: "../data/projects.json",
+  articlesUrl: "../data/articles.json",
+  projectsUrl: "../data/projects.json",
   getArticles: async () => {
-    const response = await fetch(API.url1);
-    return await response.json();
+    const response = await fetch(API.articlesUrl);
+    if (!response.ok) {
+      throw new Error(`Error cargando artículos: ${response.status}`);
+    }
+    return response.json();
   },
   getProjects: async () => {
-    const response = await fetch(API.url2);
-    return await response.json();
+    const response = await fetch(API.projectsUrl);
+    if (!response.ok) {
+      throw new Error(`Error cargando proyectos: ${response.status}`);
+    }
+    return response.json();
   },
 };
