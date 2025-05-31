@@ -58,6 +58,11 @@
     <script src="./index.js"></script>
   </body>
 
+  <template id="articles-page-template">
+    <div id="articles-container" class="articles-grid"></div>
+  </template>
+
+
 <template id="card__template">
       <article class="card">
         <h3 class="card__title"></h3>
@@ -67,6 +72,15 @@
         </div>
       </article>
     </template>
+
+    <template id="article-card-template">
+    <article class="article-card">
+      <time class="article-date"></time>
+      <h3 class="article-title"></h3>
+      <p class="article-description"></p>
+      <a class="read-more" href="#" target="_blank">Leer artículo</a>
+    </article>
+  </template>
 
     
 </html>

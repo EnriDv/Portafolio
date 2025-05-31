@@ -1,9 +1,11 @@
 import ArticleItem from "./article-item.js";
+import { ArticlesManager } from "./article-manage.js";
 import { List } from "../services/itemList/ItemList.js";
 
 const template = document.createElement("template");
     template.innerHTML = 
     `
+      <articles-manager></articles-manager>
       <div id="articles-container" class="articles-grid"></div>
     `;
 
@@ -24,14 +26,13 @@ export class ArticlesPage extends HTMLElement {
       }
     })();
 
-    
+    this.innerHTML = ``;
     this.root.appendChild(template.content.cloneNode(true));
     this.container = this.root.getElementById("articles-container");
   }
 
   connectedCallback() {
     window.addEventListener("articleschange", () => this.render());
-    // 6) Primer render
     this.render();
   }
 

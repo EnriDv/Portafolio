@@ -34,9 +34,8 @@ export class ProjectSection extends HTMLElement {
   }
 
   render() {
-    this.proyectosContainer.innerHTML = ""; // Limpiar antes de re-renderizar
+    this.proyectosContainer.innerHTML = ""; 
 
-    // 8) Renderizado
     this.proyectos.forEach(p => {
       const article = document.createElement("article");
       article.className = "project-card";

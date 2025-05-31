@@ -4,7 +4,6 @@ template.innerHTML = `
   <div class="articles-grid" id="articulos-item"></div>
 `;
 
-
 export default class ArticleItem extends HTMLElement {
   constructor() {
     super();
