@@ -1,62 +1,51 @@
 
 import { observerMixin } from "../mixin.js";
 
-export class Item{
-    constructor(text){
-        this.text = text;
-    }
+export class Item {
+  constructor({ date, title, description, url }) {
+    this.date = date;
+    this.title = title;
+    this.description = description;
+    this.url = url;
+  }
 }
 
 export class List
 {
-    #data = new Set();
+    #data = new Map();
 
-    get items()
-    {
-        return this.#data;
-    }
+  get items() {
+    return Array.from(this.#data.values());
+  }
 
-    static instance = null;
-    static {
-        this.instance = new List();
+  static instance = new List();
+  static getInstance() {
+    return this.instance;
+  }
+  constructor() {
+    if (List.instance) {
+      throw new Error("Use List.getInstance()");
     }
+  }
 
-    constructor()
-    {
-        if (List.instance)
-        {
-            throw new Error("Use get instance");
-        }
+  add(item) {
+    if (!this.#data.has(item.url)) {
+      this.#data.set(item.url, item);
+      this.notify();
     }
+  }
 
-    static getInstance(){
-        return this.instance;
+  delete(item) {
+    if (this.#data.delete(item.url)) {
+      this.notify();
     }
+  }
 
-     add(Item){
-        const array = Array.from(this.#data);
-        const todoExist = array.filter((t) => t.text == Item.text).length > 1;
-        if (todoExist)
-        {
-            this.add.add(Item)
-            this.notify();
-        }
+  findByUrl(url) {
+    return this.#data.get(url) || null;
+  }
 
-    }
-     delete(Item){
-        const array = Array.from(this.#data);
-        const Exist = array.filter((t) => t.text == Item.text).length > 1;
-        if (Exist)
-        {
-            this.add.delete(Item)
-            this.notify();
-        }
-    }
-
-    find(Item){
-        const array = Array.from(this.#data);
-        return array.find((t) => t.text == Item.text);
-    }
+  
 }
 
-Object.assign(List.prototype, observerMixin)
+Object.assign(List.prototype, observerMixin);
