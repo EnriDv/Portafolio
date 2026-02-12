@@ -1,33 +1,55 @@
 const Router = {
-basePath: window.location.hostname.includes("github.io") ? "/Portafolio" : "",
+  basePath: window.location.hostname.includes("github.io") ? "/Portafolio" : "",
 
   init() {
     document.querySelectorAll("a.header__nav-link").forEach(a => {
       a.addEventListener("click", e => {
         e.preventDefault();
-        const href = a.getAttribute("href");
+        
+        let href = a.getAttribute("href");
+        
+        if (href.startsWith("./")) {
+            href = href.slice(1); 
+        }
+        if (!href.startsWith("/")) {
+            href = "/" + href;
+        }
+
         Router.go(href);
       });
     });
 
     window.addEventListener("popstate", e => {
       let path = location.pathname;
-      if (this.basePath && path.startsWith(this.basePath)) {
-          path = path.replace(this.basePath, "");
+      
+      if (this.basePath && path.toLowerCase().startsWith(this.basePath.toLowerCase())) {
+          path = path.slice(this.basePath.length);
       }
+      
       Router.go(path || "/", false);
     });
 
     let initialPath = location.pathname;
     
-    if (this.basePath && initialPath.startsWith(this.basePath)) {
-        initialPath = initialPath.replace(this.basePath, "");
+    if (this.basePath && initialPath.toLowerCase().startsWith(this.basePath.toLowerCase())) {
+        initialPath = initialPath.slice(this.basePath.length);
     }
 
-    Router.go(initialPath || "/", false);
+    if (initialPath === "" || initialPath === ".") initialPath = "/";
+
+    Router.go(initialPath, false);
   },
 
   go(route, addToHistory = true) {
+    if (route.startsWith("./")) {
+        route = route.slice(1);
+    }
+    if (!route.startsWith("/")) {
+        route = "/" + route;
+    }
+
+    console.log("Navegando a:", route); 
+
     if (addToHistory) {
       history.pushState({ route }, "", this.basePath + route);
     }
@@ -52,8 +74,8 @@ basePath: window.location.hostname.includes("github.io") ? "/Portafolio" : "",
         pageEl = document.createElement("articles-list");
         break;
       default:
+        console.warn("Ruta no reconocida:", route, "Redirigiendo a Home.");
         pageEl = document.createElement("home-page"); 
-
         break;
     }
 
