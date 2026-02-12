@@ -20,9 +20,12 @@ export class ProjectSection extends HTMLElement {
     
     (async () => {
       try {
-        const res = await fetch("./pages/index.css"); 
+        const res = await fetch("./blocks/main.css"); 
+        
         if(res.ok) {
             styles.textContent = await res.text();
+        } else {
+            console.error("Error cargando CSS de proyectos", res.status);
         }
       } catch (e) {
         console.warn("No se pudo cargar CSS:", e);
