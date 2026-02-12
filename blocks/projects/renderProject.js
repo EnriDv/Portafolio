@@ -1,18 +1,20 @@
 const template = document.createElement("template");
+
+// AQUÍ ESTÁ EL CAMBIO: Agregamos div.section-container para los márgenes
 template.innerHTML = `
-  <div class="projects-grid" id="proyectos-lista"></div>
+  <section class="projects-section">
+    <div class="section-container">
+        <h2 class="section-title">Todos los Proyectos</h2>
+        <div class="projects-grid" id="proyectos-lista"></div>
+    </div>
+  </section>
 `;
 
 export class ProjectSection extends HTMLElement {
   constructor() {
     super();
-    // 1) Shadow DOM
     this.root = this.attachShadow({ mode: "open" });
-
-    // 2) Clonar y adjuntar el template
     this.root.appendChild(template.content.cloneNode(true));
-
-    // 3) Buscar el contenedor
     this.proyectosContainer = this.root.getElementById("proyectos-lista");
 
     const styles = document.createElement("style");
@@ -23,8 +25,6 @@ export class ProjectSection extends HTMLElement {
         const res = await fetch("/pages/index.css"); 
         if(res.ok) {
             styles.textContent = await res.text();
-        } else {
-            console.warn("No se encontró el archivo CSS");
         }
       } catch (e) {
         console.warn("No se pudo cargar CSS:", e);
@@ -55,33 +55,25 @@ export class ProjectSection extends HTMLElement {
       }
     ];
 
-    // Estado inicial con manuales
     this.proyectos = [...this.manualProjects];
   }
 
   async connectedCallback() {
-    this.render(); // Render inicial rápido
-    await this.fetchGithubRepos(); // Carga asíncrona de GitHub
-    
-    // Escuchar eventos si es necesario
-    window.addEventListener("projectschange", () => this.render());
+    this.render();
+    await this.fetchGithubRepos();
   }
 
   async fetchGithubRepos() {
     try {
-      // Pide repositorios ordenados por actualización
       const response = await fetch("https://api.github.com/users/EnriDv/repos?sort=updated&direction=desc");
-      
       if (!response.ok) throw new Error("Error GitHub API");
       
       const data = await response.json();
-
-      // Evitamos duplicados comparando URLs
       const manualUrls = this.manualProjects.map(p => p.url);
       
       const githubProjects = data
         .filter(repo => !manualUrls.includes(repo.html_url) && !repo.fork)
-        .slice(0, 12)
+        .slice(0, 9) 
         .map(repo => ({
           title: repo.name,
           description: repo.description || "Sin descripción disponible.",
@@ -94,7 +86,7 @@ export class ProjectSection extends HTMLElement {
       this.render();
 
     } catch (error) {
-      console.error("No se pudieron cargar repositorios de GitHub:", error);
+      console.error("Error repos:", error);
     }
   }
 
@@ -105,7 +97,6 @@ export class ProjectSection extends HTMLElement {
     this.proyectos.forEach(p => {
       const article = document.createElement("article");
       article.className = "project-card";
-      
       article.innerHTML = `
         <a href="${p.url}" target="_blank" class="project-link">
             <div class="image-container">
