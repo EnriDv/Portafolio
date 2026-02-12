@@ -20,7 +20,8 @@ export class ProjectSection extends HTMLElement {
     
     (async () => {
       try {
-        const res = await fetch("./blocks/main.css"); 
+        const repo = window.location.hostname.includes("github.io") ? "/Portafolio" : "";
+        const res = await fetch(`${repo}/blocks/main.css`);
         
         if(res.ok) {
             styles.textContent = await res.text();
