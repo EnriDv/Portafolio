@@ -61,12 +61,6 @@ const Router = {
       case "/index.html":
         pageEl = document.createElement("home-page");
         break;
-      case "/all":
-        pageEl = document.createElement("all-page");
-        break;
-      case "/saved":
-        pageEl = document.createElement("saved-page");
-        break;
       case "/projects":
         pageEl = document.createElement("project-section");
         break;
