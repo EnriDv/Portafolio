@@ -18,19 +18,19 @@ const Router = {
     if (addToHistory) history.pushState({ route }, "", route);
     let pageEl = null;
     switch (route) {
-      case "/":
+      case "./":
         pageEl = document.createElement("home-page");
         break;
-      case "/all":
+      case "./all":
         pageEl = document.createElement("all-page");
         break;
-      case "/saved":
+      case "./saved":
         pageEl = document.createElement("saved-page");
         break;
-      case "/projects":
+      case "./projects":
         pageEl = document.createElement("project-section");
         break;
-      case "/articles":
+      case "./articles":
         pageEl = document.createElement("articles-list");
         break;
       default:
