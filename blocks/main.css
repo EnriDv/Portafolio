@@ -1,10 +1,12 @@
-.main-content {
-  padding-top: 80px;
+
+
+.page-container {
+  flex: 1; /* Ocupa el espacio disponible empujando el footer */
+  width: 100%;
 }
 
-.hero-section {
-  padding: 120px 2rem;
-  background-color: #ffffff;
+.main-content {
+  padding-top: 80px;
 }
 
 .section-container {
@@ -12,25 +14,28 @@
   margin: 0 auto;
 }
 
+/* --- HERO SECTION --- */
+.hero-section {
+  padding: 120px 2rem;
+  background-color: #ffffff;
+}
+
 .hero-title {
   font-size: 48px;
   font-weight: 700;
   max-width: 800px;
   margin-bottom: 1.5rem;
+  color: #111;
 }
 
 .hero-description {
   font-size: 20px;
-  color: #8b8b8b;
+  color: #6b7280;
   max-width: 600px;
+  line-height: 1.6;
 }
 
-.page-container {
-  min-height: 100vh;
-  width: 100vw;
-  background-color: #f5f6f7;
-}
-
+/* --- PROYECTOS --- */
 .projects-section {
   padding: 80px 2rem;
 }
@@ -39,6 +44,7 @@
   font-size: 32px;
   font-weight: 700;
   margin-bottom: 3rem;
+  color: #111;
 }
 
 .projects-grid {
@@ -51,42 +57,83 @@
   background-color: #ffffff;
   border-radius: 16px;
   overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.project-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.image-container {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background-color: #eee;
 }
 
 .project-image {
   width: 100%;
-  height: 272px;
+  height: 100%;
   object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.05);
 }
 
 .project-details {
   padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .project-title {
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin: 0 0 0.5rem 0;
+  color: #1a1b22;
 }
 
 .project-description {
   font-size: 16px;
-  color: #1a1b22;
-  margin-bottom: 1rem;
+  color: #4b5563;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+  flex-grow: 1;
 }
 
 .tag-container {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.5rem;
+  margin-top: auto;
 }
 
 .tag {
-  padding: 0 1px;
-  border-radius: 9999px;
-  background-color: #f5f6f7;
-  font-size: 14px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background-color: #f3f4f6;
+  font-size: 13px;
+  color: #374151;
+  font-weight: 500;
 }
 
+/* --- ARTÍCULOS --- */
 .articles-section {
   padding: 80px 2rem;
   background-color: #ffffff;
@@ -101,32 +148,51 @@
 .article-card {
   display: flex;
   flex-direction: column;
+  height: 100%;
+  padding: 1.5rem;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.article-card:hover {
+  background-color: #f9fafb;
+  border-color: #e5e7eb;
 }
 
 .article-date {
   font-size: 14px;
-  font-weight: 700;
-  color: #b6bcbf;
-  margin-bottom: 1rem;
+  font-weight: 600;
+  color: #9ca3af;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
 }
 
 .article-title {
   font-size: 26px;
   font-weight: 700;
   margin-bottom: 1rem;
+  color: #111;
+  line-height: 1.3;
 }
 
 .article-description {
   font-size: 16px;
-  color: #1a1b22;
-  margin-bottom: 1rem;
+  color: #4b5563;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
 }
 
-.about-section {
+/* --- ABOUT & CONTACT --- */
+.about-section, .contact-section {
   padding: 80px 2rem;
 }
 
-.about-grid {
+.contact-section {
+  background-color: #ffffff;
+}
+
+.about-grid, .contact-grid {
   display: grid;
   grid-template-columns: repeat(1, minmax(0, 1fr));
   gap: 3rem;
@@ -140,8 +206,9 @@
 
 .profile-description {
   font-size: 16px;
-  color: #1a1b22;
+  color: #374151;
   margin-bottom: 2rem;
+  line-height: 1.6;
 }
 
 .skills-list {
@@ -154,6 +221,7 @@
 
 .skill-name {
   font-size: 16px;
+  font-weight: 600;
   margin-bottom: 0.5rem;
 }
 
@@ -164,99 +232,53 @@
   margin-bottom: 2rem;
 }
 
-.contact-section {
-  padding: 80px 2rem;
-  background-color: #ffffff;
-}
-
-.contact-grid {
-  display: grid;
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-  gap: 3rem;
-}
-
-/* Botón de guardar (azul minimalista) */
-.savebtn {
+.savebtn, .likebtn {
   background: transparent;
-  border: 1px solid #d0d7e2;
+  border: 1px solid #d1d5db;
   cursor: pointer;
-  padding: 6px 10px;
-  border-radius: 6px;
+  padding: 8px 12px;
+  border-radius: 8px;
   transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.savebtn:hover, .likebtn:hover {
+  background-color: #f3f4f6;
+}
+
 .savebtn--active {
   background: #e6f0ff;
   border-color: #86b7fe;
-}
-.savebtn__icon {
-  font-size: 20px;
-  color: #888;
-  transition: color 0.2s;
-}
-.savebtn--active .savebtn__icon {
-  color: #1d4ed8; /* azul intenso (similar a Tailwind blue-700) */
+  color: #1d4ed8;
 }
 
-
-/* Botón de "me gusta" (minimalista) */
-.likebtn {
-  background: transparent;
-  border: 1px solid #ddd;
-  cursor: pointer;
-  padding: 6px 10px;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  transition: all 0.2s ease;
-}
 .likebtn--active {
   background: #fceeee;
   border-color: #f5b5b5;
-}
-.likebtn__icon {
-  font-size: 20px;
-  color: #999;
-  transition: color 0.2s;
-}
-.likebtn--active .likebtn__icon {
-  color: #e74c3c; /* rojo tenue */
-}
-.likebtn__count {
-  margin-left: 6px;
-  font-size: 14px;
-  color: #555;
+  color: #e74c3c;
 }
 
+/* MEDIA QUERIES */
+@media (max-width: 640px) {
+  .hero-title { font-size: 36px; }
+}
 
 @media (min-width: 640px) {
-  .projects-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .articles-grid {
+  .projects-grid, .articles-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (min-width: 768px) {
-  .about-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .contact-grid {
+  .about-grid, .contact-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (min-width: 1024px) {
-  .projects-grid {
+  .projects-grid, .articles-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-  .articles-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 640px) {
-  .hero-title {
-    font-size: 36px;
   }
 }
