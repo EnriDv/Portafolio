@@ -25,15 +25,15 @@ export class ArticlesList extends HTMLElement {
       {
         date: "May 15, 2025",
         title: "Desarrollar software ya no es solo programar",
-        description: "La inteligencia artificial está transformando la forma en que desarrollamos software. Ya no se trata solo de escribir líneas de código, sino de colaborar con sistemas capaces de sugerir soluciones y optimizar procesos.",
-        url: "https://www.linkedin.com/posts/jose-enrique-diaz-velarde_ia-desarrollodesoftware-programacion-activity-7327533883325902849-ExU5?utm_source=share&utm_medium=member_desktop&rcm=ACoAAESspMwB044CPVwHzv8StwGDmROQ13_Tcjo",
+        description: "La inteligencia artificial está transformando la forma en que desarrollamos software. Ya no se trata solo de escribir líneas de código, sino de colaborar...",
+        url: "https://www.linkedin.com/posts/jose-enrique-diaz-velarde_ia-desarrollodesoftware-programacion-activity-7327533883325902849-ExU5",
         category: "IA & Dev",
         image: "https://placehold.co/600x400/111827/FFF?text=IA+%26+Software" 
       },
       {
         date: "April 10, 2025",
         title: "RF-Pose",
-        description: "La combinación de inteligencia artificial y señales inalámbricas permite detectar posturas humanas a través de las paredes. ¿Privacidad o avance médico?",
+        description: "La combinación de inteligencia artificial y señales inalámbricas permite detectar posturas humanas a través de las paredes.",
         url: "https://www.linkedin.com/feed/update/urn:li:activity:7322446822579281920/",
         category: "AI Research",
         image: "https://placehold.co/600x400/e11d48/FFF?text=RF-Pose"
@@ -41,7 +41,7 @@ export class ArticlesList extends HTMLElement {
       {
         date: "April 5, 2025",
         title: "Vibe Coding",
-        description: "Una Nueva Era en la Ingeniería de Software. No es solo una tendencia, es un cambio de mentalidad en cómo abordamos el código limpio.",
+        description: "Una Nueva Era en la Ingeniería de Software. No es solo una tendencia, es un cambio de mentalidad.",
         url: "https://www.linkedin.com/feed/update/urn:li:activity:7312321735331106816/",
         category: "Software",
         image: "https://placehold.co/600x400/2563eb/FFF?text=Vibe+Coding"
@@ -64,11 +64,13 @@ export class ArticlesList extends HTMLElement {
 
   async loadStyles() {
     try {
-      const mainResp = await fetch("./pages/index.css");
-      const artResp = await fetch("./blocks/articles.css");
-      
-      const mainCss = await mainResp.text();
-      const artCss = await artResp.text();
+      const mainUrl = new URL('../blocks/main.css', import.meta.url).href;
+      const artUrl = new URL('../blocks/articles.css', import.meta.url).href;
+
+      const [mainCss, artCss] = await Promise.all([
+          fetch(mainUrl).then(r => r.text()),
+          fetch(artUrl).then(r => r.text())
+      ]);
 
       this.stylesElement.textContent = mainCss + "\n" + artCss;
     } catch (e) {
@@ -78,14 +80,14 @@ export class ArticlesList extends HTMLElement {
 
   render() {
     this.memento = JSON.parse(localStorage.getItem("proyectosMemento")) || {
-      likes: new Array(this.articles.length).fill(0),
-      liked: new Array(this.articles.length).fill(false),
-      saved: new Array(this.articles.length).fill(false),
+      likes: {}, liked: {}, saved: {} 
     };
 
     this.container.innerHTML = "";
 
     this.articles.forEach((article, idx) => {
+      const id = idx; 
+
       const card = document.createElement("article");
       card.className = "article-card";
       
@@ -111,61 +113,37 @@ export class ArticlesList extends HTMLElement {
       `;
 
       const btnContainer = card.querySelector(".card-actions");
+      
+      const likesCount = this.memento.likes[id] || 0;
+      const isLiked = this.memento.liked[id] || false;
+      const isSaved = this.memento.saved[id] || false;
 
       const likeBtn = document.createElement("button");
-      likeBtn.className = "likebtn";
-      const currentLikes = this.memento.likes[idx] || 0;
-      
-      likeBtn.innerHTML = `
-        <span class="likebtn__icon">&#10084;</span>
-        <span class="likebtn__count">${currentLikes}</span>
-      `;
-      
-      if (this.memento.liked[idx]) likeBtn.classList.add("likebtn--active");
+      likeBtn.className = isLiked ? "likebtn likebtn--active" : "likebtn";
+      likeBtn.innerHTML = `<span class="likebtn__icon">&#10084;</span><span class="likebtn__count">${likesCount}</span>`;
       
       likeBtn.addEventListener("click", (e) => {
         e.preventDefault();
+        const currentlyLiked = this.memento.liked[id] || false;
         
-        if (this.memento.liked[idx] === undefined) this.memento.liked[idx] = false;
-        if (this.memento.likes[idx] === undefined) this.memento.likes[idx] = 0;
-
-        this.memento.liked[idx] = !this.memento.liked[idx];
+        this.memento.liked[id] = !currentlyLiked;
+        this.memento.likes[id] = (this.memento.likes[id] || 0) + (this.memento.liked[id] ? 1 : -1);
         
-        if (this.memento.liked[idx]) {
-          this.memento.likes[idx]++;
-        } else {
-          this.memento.likes[idx]--;
-        }
-        
-        likeBtn.classList.toggle("likebtn--active", this.memento.liked[idx]);
-        likeBtn.querySelector(".likebtn__count").textContent = this.memento.likes[idx];
+        likeBtn.className = this.memento.liked[id] ? "likebtn likebtn--active" : "likebtn";
+        likeBtn.querySelector(".likebtn__count").textContent = this.memento.likes[id];
         localStorage.setItem("proyectosMemento", JSON.stringify(this.memento));
       });
 
       const saveBtn = document.createElement("button");
-      saveBtn.className = "savebtn";
-      
-      const isSaved = this.memento.saved[idx] || false;
-      
-      if (isSaved) {
-          saveBtn.classList.add("savebtn--active");
-          saveBtn.innerHTML = `<span class="savebtn__icon">&#x2605;</span>`;
-      } else {
-          saveBtn.innerHTML = `<span class="savebtn__icon">&#x2606;</span>`;
-      }
+      saveBtn.className = isSaved ? "savebtn savebtn--active" : "savebtn";
+      saveBtn.innerHTML = isSaved ? `<span class="savebtn__icon">&#x2605;</span>` : `<span class="savebtn__icon">&#x2606;</span>`;
 
       saveBtn.addEventListener("click", (e) => {
         e.preventDefault();
+        this.memento.saved[id] = !this.memento.saved[id];
         
-        if (this.memento.saved[idx] === undefined) this.memento.saved[idx] = false;
-        
-        this.memento.saved[idx] = !this.memento.saved[idx];
-        
-        saveBtn.classList.toggle("savebtn--active", this.memento.saved[idx]);
-        saveBtn.innerHTML = this.memento.saved[idx] 
-            ? `<span class="savebtn__icon">&#x2605;</span>` 
-            : `<span class="savebtn__icon">&#x2606;</span>`;
-            
+        saveBtn.className = this.memento.saved[id] ? "savebtn savebtn--active" : "savebtn";
+        saveBtn.innerHTML = this.memento.saved[id] ? `<span class="savebtn__icon">&#x2605;</span>` : `<span class="savebtn__icon">&#x2606;</span>`;
         localStorage.setItem("proyectosMemento", JSON.stringify(this.memento));
       });
 
