@@ -1,5 +1,6 @@
-
 const Router = {
+basePath: window.location.hostname.includes("github.io") ? "/Portafolio" : "",
+
   init() {
     document.querySelectorAll("a.header__nav-link").forEach(a => {
       a.addEventListener("click", e => {
@@ -8,41 +9,63 @@ const Router = {
         Router.go(href);
       });
     });
+
     window.addEventListener("popstate", e => {
-      Router.go(e.state?.route || location.pathname, false);
+      let path = location.pathname;
+      if (this.basePath && path.startsWith(this.basePath)) {
+          path = path.replace(this.basePath, "");
+      }
+      Router.go(path || "/", false);
     });
-    Router.go(location.pathname, false);
+
+    let initialPath = location.pathname;
+    
+    if (this.basePath && initialPath.startsWith(this.basePath)) {
+        initialPath = initialPath.replace(this.basePath, "");
+    }
+
+    Router.go(initialPath || "/", false);
   },
 
   go(route, addToHistory = true) {
-    if (addToHistory) history.pushState({ route }, "", route);
+    if (addToHistory) {
+      history.pushState({ route }, "", this.basePath + route);
+    }
+
     let pageEl = null;
+
     switch (route) {
-      case "./":
+      case "/":
+      case "/index.html":
         pageEl = document.createElement("home-page");
         break;
-      case "./all":
+      case "/all":
         pageEl = document.createElement("all-page");
         break;
-      case "./saved":
+      case "/saved":
         pageEl = document.createElement("saved-page");
         break;
-      case "./projects":
+      case "/projects":
         pageEl = document.createElement("project-section");
         break;
-      case "./articles":
+      case "/articles":
         pageEl = document.createElement("articles-list");
         break;
       default:
-        pageEl = document.createElement("h1");
-        pageEl.textContent = "Página no encontrada";
+        pageEl = document.createElement("home-page"); 
+
         break;
     }
+
     if (pageEl) {
-      const main = document.querySelector("main");
-      main.innerHTML = "";
-      main.appendChild(pageEl);
-      window.scrollTo(0, 0);
+      const main = document.querySelector("main"); 
+      if (main) {
+        main.innerHTML = "";
+        main.appendChild(pageEl);
+        window.scrollTo(0, 0);
+      } else {
+        console.error("No se encontró el elemento <main> en el HTML");
+      }
     }
   }
 };
