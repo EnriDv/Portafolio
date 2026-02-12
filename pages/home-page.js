@@ -1,52 +1,108 @@
-
 const template = document.createElement("template");
 template.innerHTML = `
   <main class="main-content">
     <section id="home" class="hero-section">
-      <div class="section-container">
-        <h1 class="hero-title">Jose Enrique Diaz Velarde</h1>
-        <p class="hero-description">
-          Front End Designer | Angular | .NET | Agile Methodology | Software Engineering Student
-        </p>
-        <p class="hero-description">Santa Cruz, Bolivia</p>
+      <div class="section-container hero-container">
+        <div class="hero-text">
+          <span class="hero-greeting">Hola, soy</span>
+          <h1 class="hero-title">Jose Enrique<br>Diaz Velarde</h1>
+          <h2 class="hero-subtitle">Ingeniero de Software en formación & Full Stack Dev</h2>
+          <p class="hero-description">
+            Aporto liderazgo y comunicación efectiva. Especializado en crear soluciones escalables aplicando principios SOLID y patrones de diseño. 
+            Experiencia en React, Angular, .NET y gráficos 3D con Three.js.
+          </p>
+          <div class="hero-buttons">
+            <a href="/cv.pdf" target="_blank" class="btn btn-primary">Descargar CV</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+           <div class="visual-circle"></div>
+        </div>
       </div>
     </section>
 
-
-    <section id="about" class="about-section">
+    <section id="featured-projects" class="carousel-section">
       <div class="section-container">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-grid">
-          <div class="profile-container">
-            <h3 class="subsection-title">Profile</h3>
-            <p class="profile-description">
-              Soy José Enrique Díaz Velarde, Front End Designer especializado en Angular y .NET con metodología Agile. Apasionado por crear interfaces intuitivas y eficientes.
-            </p>
-            <h3 class="subsection-title">Education & Experience</h3>
-            <p class="profile-description">
-              Estudiante de Ingeniería de Software y Diseñador Front End con experiencia en proyectos universitarios y colaborativos.
-            </p>
-            <p class="profile-description">
-              Actualmente en formación continua y participando en la comunidad de desarrollo en Santa Cruz, Bolivia.
-            </p>
-            <a href="https://www.linkedin.com/in/jose-enrique-diaz-velarde/" target="_blank" class="profile-link">
-              Ver perfil completo en LinkedIn
-            </a>
+        <div class="section-header">
+          <h2 class="section-title">Proyectos Recientes</h2>
+          <div class="carousel-controls">
+            <button id="prevBtn" class="nav-btn">←</button>
+            <button id="nextBtn" class="nav-btn">→</button>
           </div>
-          <div class="skills-container">
-            <h3 class="subsection-title">Skills & Hobbies</h3>
-            <div class="skills-list">
-              <div class="skill-item"><p class="skill-name">Angular</p></div>
-              <div class="skill-item"><p class="skill-name">.NET</p></div>
-              <div class="skill-item"><p class="skill-name">HTML & CSS</p></div>
-              <div class="skill-item"><p class="skill-name">JavaScript</p></div>
+        </div>
+        
+        <div class="carousel-track-container" id="carousel-track">
+           <p style="padding: 1rem; color: #666;">Cargando proyectos...</p>
+        </div>
+
+        <div class="center-action">
+          <a href="#projects" onclick="document.querySelector('app-router').loadRoute('projects')" class="see-all-btn">Ver todos los proyectos</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="resume" class="resume-section">
+      <div class="section-container">
+        <h2 class="section-title">Trayectoria</h2>
+        
+        <div class="resume-grid">
+          <div class="resume-column">
+            <h3 class="subsection-title">Experiencia</h3>
+            
+            <div class="timeline-item">
+              <span class="timeline-date">2025</span>
+              <h4 class="timeline-role">Gestor de Salones de Belleza "Saly"</h4>
+              <p class="timeline-tech">Kotlin • Android Studio</p>
+              <p class="timeline-desc">Aplicación móvil para agendar citas, optimizando la gestión de tiempos y clientes.</p>
             </div>
-            <h3 class="subsection-title">Hobbies</h3>
-            <div class="hobbies-container">
-              <span class="tag">Photography</span>
-              <span class="tag">Travel</span>
-              <span class="tag">Reading</span>
-              <span class="tag">Music</span>
+
+            <div class="timeline-item">
+              <span class="timeline-date">2025</span>
+              <h4 class="timeline-role">Order Now</h4>
+              <p class="timeline-tech">React • Supabase</p>
+              <p class="timeline-desc">Aplicación clon de pedidos enfocada en la experiencia de usuario y gestión de datos en tiempo real.</p>
+            </div>
+
+            <div class="timeline-item">
+              <span class="timeline-date">Pasantía</span>
+              <h4 class="timeline-role">FocoAzul</h4>
+              <p class="timeline-tech">React • WordPress • Elementor</p>
+              <p class="timeline-desc">Diseño y maquetación de interfaces web y personalización de sitios corporativos.</p>
+            </div>
+
+             <div class="timeline-item">
+              <span class="timeline-date">2024</span>
+              <h4 class="timeline-role">Plataforma de Inventario</h4>
+              <p class="timeline-tech">Angular • .NET • MariaDB</p>
+              <p class="timeline-desc">Gestión de inventario para laboratorio aplicando arquitectura limpia y patrones de diseño.</p>
+            </div>
+          </div>
+
+          <div class="resume-column">
+            <h3 class="subsection-title">Educación & Certificaciones</h3>
+            
+            <div class="timeline-item">
+              <span class="timeline-date">2023 - Presente</span>
+              <h4 class="timeline-role">Licenciatura en Ingeniería de Software</h4>
+              <p class="timeline-place">Universidad Católica Boliviana "San Pablo"</p>
+            </div>
+
+            <div class="timeline-item">
+              <span class="timeline-date">May 2025</span>
+              <h4 class="timeline-role">Basic Proficiency in KNIME</h4>
+              <p class="timeline-place">Analytics Platform</p>
+            </div>
+
+            <div class="timeline-item">
+              <span class="timeline-date">Nov 2024</span>
+              <h4 class="timeline-role">JavaScript Essentials 1</h4>
+              <p class="timeline-place">Cisco Networking Academy</p>
+            </div>
+
+             <div class="timeline-item">
+              <span class="timeline-date">2024 - 2025</span>
+              <h4 class="timeline-role">Competencia ICPC</h4>
+              <p class="timeline-place">Participación activa en programación competitiva.</p>
             </div>
           </div>
         </div>
@@ -55,45 +111,18 @@ template.innerHTML = `
 
     <section id="contact" class="contact-section">
       <div class="section-container">
-        <h2 class="section-title">Contact Me</h2>
-        <div class="contact-grid">
-          <div class="contact__form-container">
-            <form id="contact-form">
-              <div class="contact__form-group">
-                <input type="text" placeholder="Your Name" class="contact__form-input" id="name-input" />
-              </div>
-              <div class="contact__form-group">
-                <input type="email" placeholder="Your Email" class="contact__form-input" id="email-input" />
-              </div>
-              <div class="contact__form-group">
-                <textarea placeholder="Your Message" class="contact__form-textarea" id="message-input"></textarea>
-              </div>
-              <button type="submit" class="contact__submit-button">Send Message</button>
-            </form>
-            <div class="contact__success-message" id="form-success" hidden>
-              Thank you for your message! I'll get back to you soon.
+        <h2 class="section-title">Hablemos</h2>
+        <div class="contact-wrapper">
+            <p class="contact-text">
+                ¿Tienes un proyecto en mente o quieres colaborar? Estoy disponible para nuevas oportunidades.
+            </p>
+            
+            <a href="mailto:dv.josenrique@gmail.com" class="email-link">dv.josenrique@gmail.com</a>
+            
+            <div class="social-links-row">
+                <a href="https://github.com/EnriDv" target="_blank" class="social-btn">GitHub</a>
+                <a href="https://linkedin.com/in/jose-enrique-diaz-velarde" target="_blank" class="social-btn">LinkedIn</a>
             </div>
-          </div>
-          <div class="contact__info-social-container">
-            <div class="contact__info-container">
-              <h3 class="contact__title">Contact Information</h3>
-              <p class="contact__item">
-                Email: 
-                <a href="mailto:dv.josenrique@gmail.com" target="_blank">dv.josenrique@gmail.com</a>
-              </p>
-              <p class="contact__item">
-                GitHub: 
-                <a href="https://github.com/EnriDv" target="_blank">github.com/EnriDv</a>
-              </p>
-              <p class="contact__item">Location: Santa Cruz, Bolivia</p>
-            </div>
-            <div class="contact__social-container">
-              <h3 class="contact__title">Social Media</h3>
-              <div class="contact__social-links">
-                <!-- Tus SVGs aquí -->
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -103,22 +132,99 @@ template.innerHTML = `
 export class HomePage extends HTMLElement {
   constructor() {
     super();
-    
     this.root = this.attachShadow({ mode: "open" });
     this.root.appendChild(template.content.cloneNode(true));
     
     const styles = document.createElement("style");
     this.root.appendChild(styles);
-    async function loadCSS() {
-      const res = await fetch("/pages/index.css");
-      const css = await res.text();
-      styles.textContent = css;
+
+    this.loadStyles(styles);
+  }
+
+  async loadStyles(styleElement) {
+    try {
+        // Carga main.css y home.css
+        const mainCss = await fetch("/blocks/main.css").then(r => r.text());
+        const homeCss = await fetch("/blocks/home.css").then(r => r.text());
+        
+        styleElement.textContent = mainCss + "\n" + homeCss;
+    } catch (e) {
+        console.warn("Error cargando CSS en HomePage:", e);
     }
-    loadCSS();
   }
 
   connectedCallback() {
-    
+    this.fetchGithubProjects();
+    this.setupCarouselEvents();
+  }
+
+  async fetchGithubProjects() {
+    const track = this.root.getElementById('carousel-track');
+    if(!track) return;
+
+    try {
+      const res = await fetch('https://api.github.com/users/EnriDv/repos?sort=updated&per_page=8');
+      
+      if(!res.ok) throw new Error("Error fetching repos");
+      
+      const data = await res.json();
+      
+      const projects = data
+        .filter(repo => !repo.fork) 
+        .map(repo => ({
+           title: repo.name,
+           desc: repo.description || "Sin descripción disponible.",
+           tags: [repo.language || "Code"],
+           url: repo.html_url,
+           image: `https://placehold.co/400x250/1a1b22/FFF?text=${repo.name}`
+        }));
+
+      this.renderCarousel(projects);
+
+    } catch (error) {
+      console.error(error);
+      track.innerHTML = `<p style="padding:1rem">No se pudieron cargar los proyectos. <a href="https://github.com/EnriDv" target="_blank">Ver en GitHub</a></p>`;
+    }
+  }
+
+  renderCarousel(projects) {
+    const track = this.root.getElementById('carousel-track');
+    track.innerHTML = ''; 
+
+    projects.forEach(p => {
+        const card = document.createElement('a');
+        card.className = 'carousel-card';
+        card.href = p.url;
+        card.target = "_blank";
+        
+        card.innerHTML = `
+            <img src="${p.image}" alt="${p.title}" class="card-img" loading="lazy">
+            <div class="card-body">
+                <h3 class="card-title">${p.title}</h3>
+                <p class="card-desc">${p.desc}</p>
+                <div class="card-tags">
+                    ${p.tags.map(t => `<span class="card-tag">${t}</span>`).join('')}
+                </div>
+            </div>
+        `;
+        track.appendChild(card);
+    });
+  }
+
+  setupCarouselEvents() {
+    const track = this.root.getElementById('carousel-track');
+    const prevBtn = this.root.getElementById('prevBtn');
+    const nextBtn = this.root.getElementById('nextBtn');
+
+    if (prevBtn && nextBtn && track) {
+        prevBtn.addEventListener('click', () => {
+            track.scrollBy({ left: -340, behavior: 'smooth' });
+        });
+
+        nextBtn.addEventListener('click', () => {
+            track.scrollBy({ left: 340, behavior: 'smooth' });
+        });
+    }
   }
 }
 
