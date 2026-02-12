@@ -143,8 +143,10 @@ export class HomePage extends HTMLElement {
 
   async loadStyles(styleElement) {
     try {
-        const mainCss = await fetch("./blocks/main.css").then(r => r.text());
-        const homeCss = await fetch("./blocks/home.css").then(r => r.text());
+        const repo = window.location.hostname.includes("github.io") ? "/Portafolio" : "";
+        
+        const mainCss = await fetch(`${repo}/blocks/main.css`).then(r => r.text());
+        const homeCss = await fetch(`${repo}/blocks/home.css`).then(r => r.text());
         
         styleElement.textContent = mainCss + "\n" + homeCss;
     } catch (e) {
