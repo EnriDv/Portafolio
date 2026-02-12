@@ -1,4 +1,5 @@
-.contact__form-container {
+.contact-section {
+  background-color: #ffffff;
 }
 
 .contact__form-group {
@@ -11,6 +12,7 @@
   padding: 0 1.5rem;
   border-radius: 30px;
   border: 1px solid #cfcfcf;
+  font-family: inherit;
 }
 
 .contact__form-textarea {
@@ -20,6 +22,7 @@
   border-radius: 30px;
   border: 1px solid #cfcfcf;
   resize: none;
+  font-family: inherit;
 }
 
 .contact__submit-button {
@@ -32,6 +35,11 @@
   border: none;
   cursor: pointer;
   box-shadow: 0px 5px 15px rgba(14, 26, 57, 0.2);
+  transition: background-color 0.2s;
+}
+
+.contact__submit-button:hover {
+  background-color: #1d4ed8;
 }
 
 .contact__success-message {
@@ -40,14 +48,6 @@
   background-color: #2f71e5;
   color: #ffffff;
   border-radius: 16px;
-}
-
-.contact__info-social-container {
-  /* Estilos para el contenedor de información y redes sociales */
-}
-
-.contact__info-container {
-  /* Estilos para la información de contacto */
 }
 
 .contact__title {
@@ -62,13 +62,10 @@
   margin-bottom: 0.5rem;
 }
 
-.contact__social-container {
-  /* Estilos para el contenedor de redes sociales */
-}
-
 .contact__social-links {
   display: flex;
   gap: 1rem;
+  margin-top: 1rem;
 }
 
 .contact__social-link {
@@ -79,4 +76,9 @@
   justify-content: center;
   border-radius: 8px;
   background-color: #f5f6f7;
+  transition: background-color 0.2s;
+}
+
+.contact__social-link:hover {
+  background-color: #e5e7eb;
 }

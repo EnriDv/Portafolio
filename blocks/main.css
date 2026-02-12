@@ -1,7 +1,16 @@
-
+/* --- GLOBAL & LAYOUT --- */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: #f5f6f7;
+  overflow-x: hidden;
+}
 
 .page-container {
-  flex: 1; /* Ocupa el espacio disponible empujando el footer */
+  flex: 1;
   width: 100%;
 }
 
@@ -9,14 +18,19 @@
   padding-top: 80px;
 }
 
+/* CLAVE: Contenedor con padding lateral seguro */
 .section-container {
   max-width: 1440px;
   margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 /* --- HERO SECTION --- */
 .hero-section {
-  padding: 120px 2rem;
+  padding: 120px 0;
   background-color: #ffffff;
 }
 
@@ -35,9 +49,12 @@
   line-height: 1.6;
 }
 
-/* --- PROYECTOS --- */
-.projects-section {
-  padding: 80px 2rem;
+/* --- SECCIONES COMUNES --- */
+.projects-section, 
+.articles-section, 
+.about-section, 
+.contact-section {
+  padding: 80px 0;
 }
 
 .section-title {
@@ -47,12 +64,28 @@
   color: #111;
 }
 
-.projects-grid {
+.subsection-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+/* --- GRIDS --- */
+.projects-grid, 
+.articles-grid {
   display: grid;
   grid-template-columns: repeat(1, minmax(0, 1fr));
   gap: 2rem;
 }
 
+.about-grid, 
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 3rem;
+}
+
+/* --- CARDS PROYECTOS --- */
 .project-card {
   background-color: #ffffff;
   border-radius: 16px;
@@ -133,16 +166,9 @@
   font-weight: 500;
 }
 
-/* --- ARTÍCULOS --- */
+/* --- CARDS ARTÍCULOS --- */
 .articles-section {
-  padding: 80px 2rem;
   background-color: #ffffff;
-}
-
-.articles-grid {
-  display: grid;
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-  gap: 2rem;
 }
 
 .article-card {
@@ -183,27 +209,7 @@
   line-height: 1.6;
 }
 
-/* --- ABOUT & CONTACT --- */
-.about-section, .contact-section {
-  padding: 80px 2rem;
-}
-
-.contact-section {
-  background-color: #ffffff;
-}
-
-.about-grid, .contact-grid {
-  display: grid;
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-  gap: 3rem;
-}
-
-.subsection-title {
-  font-size: 26px;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-}
-
+/* --- ELEMENTOS ABOUT --- */
 .profile-description {
   font-size: 16px;
   color: #374151;
@@ -232,6 +238,7 @@
   margin-bottom: 2rem;
 }
 
+/* --- BOTONES INTERACCIÓN --- */
 .savebtn, .likebtn {
   background: transparent;
   border: 1px solid #d1d5db;
@@ -260,9 +267,10 @@
   color: #e74c3c;
 }
 
-/* MEDIA QUERIES */
+/* --- MEDIA QUERIES --- */
 @media (max-width: 640px) {
   .hero-title { font-size: 36px; }
+  .section-container { padding-left: 20px; padding-right: 20px; }
 }
 
 @media (min-width: 640px) {
