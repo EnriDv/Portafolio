@@ -64,8 +64,8 @@ export class ArticlesList extends HTMLElement {
 
   async loadStyles() {
     try {
-      const mainResp = await fetch("/pages/index.css");
-      const artResp = await fetch("/blocks/articles.css");
+      const mainResp = await fetch("./pages/index.css");
+      const artResp = await fetch("./blocks/articles.css");
       
       const mainCss = await mainResp.text();
       const artCss = await artResp.text();

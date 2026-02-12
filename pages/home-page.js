@@ -143,9 +143,8 @@ export class HomePage extends HTMLElement {
 
   async loadStyles(styleElement) {
     try {
-        // Carga main.css y home.css
-        const mainCss = await fetch("/blocks/main.css").then(r => r.text());
-        const homeCss = await fetch("/blocks/home.css").then(r => r.text());
+        const mainCss = await fetch("./blocks/main.css").then(r => r.text());
+        const homeCss = await fetch("./blocks/home.css").then(r => r.text());
         
         styleElement.textContent = mainCss + "\n" + homeCss;
     } catch (e) {

@@ -1,6 +1,4 @@
 const template = document.createElement("template");
-
-// AQUÍ ESTÁ EL CAMBIO: Agregamos div.section-container para los márgenes
 template.innerHTML = `
   <section class="projects-section">
     <div class="section-container">
@@ -22,7 +20,7 @@ export class ProjectSection extends HTMLElement {
     
     (async () => {
       try {
-        const res = await fetch("/pages/index.css"); 
+        const res = await fetch("./pages/index.css"); 
         if(res.ok) {
             styles.textContent = await res.text();
         }
