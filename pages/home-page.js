@@ -36,7 +36,7 @@ template.innerHTML = `
         </div>
 
         <div class="center-action">
-          <a href="#projects" onclick="document.querySelector('app-router').loadRoute('projects')" class="see-all-btn">Ver todos los proyectos</a>
+          <a href="projects" onclick="document.querySelector('app-router').loadRoute('projects')" class="see-all-btn">Ver todos los proyectos</a>
         </div>
       </div>
     </section>

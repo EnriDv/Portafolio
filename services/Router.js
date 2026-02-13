@@ -58,6 +58,8 @@ const Router = {
 
     switch (route) {
       case "/":
+        pageEl = document.createElement("home-page"); 
+        break;
       case "/index.html":
         pageEl = document.createElement("home-page");
         break;
