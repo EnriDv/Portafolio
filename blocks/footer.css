@@ -1,0 +1,35 @@
+.site-footer {
+  padding: 40px 2rem;
+  background-color: #1a1b22;
+  color: #ffffff;
+  margin-top: auto;
+}
+
+.footer__container {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.footer__copyright {
+  font-size: 16px;
+}
+
+.footer__links {
+  display: flex;
+  gap: 2rem;
+}
+
+.footer__link {
+  font-size: 16px;
+}
+
+@media (min-width: 640px) {
+  .footer__container {
+    flex-direction: row;
+  }
+}

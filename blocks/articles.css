@@ -1,0 +1,167 @@
+/* blocks/articles.css */
+
+/* Ajuste del grid para que se vea bien con imágenes */
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 2.5rem;
+  padding-bottom: 2rem;
+}
+
+/* Mejoras a la tarjeta base */
+.article-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.article-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.15);
+}
+
+/* Nueva zona de imagen */
+.article-image-header {
+  width: 100%;
+  height: 200px;
+  position: relative;
+  background-color: #f3f4f6;
+  overflow: hidden;
+}
+
+.article-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.article-card:hover .article-image {
+  transform: scale(1.05);
+}
+
+/* Contenido de texto */
+.article-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Metadatos (Fecha y Categoría) */
+.article-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+
+.article-category {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #2563eb;
+  background: #eff6ff;
+  padding: 4px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+
+.article-date {
+  font-size: 0.85rem; /* Sobrescribe suavemente el main.css */
+  margin-bottom: 0;
+}
+
+/* Título y descripción */
+.article-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+.article-description {
+  flex-grow: 1;
+  margin-bottom: 1.5rem;
+  color: #4b5563;
+}
+
+/* Enlace de leer más */
+.read-more {
+  font-weight: 600;
+  color: #2563eb;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.read-more:hover {
+  text-decoration: underline;
+}
+
+/* Botones flotantes (Like/Save) rediseñados */
+.card-actions {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.likebtn, .savebtn {
+  background: rgba(255, 255, 255, 0.9); /* Fondo blanco semitransparente */
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 8px;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.likebtn:hover, .savebtn:hover {
+  background: #fff;
+  transform: scale(1.1);
+}
+
+.likebtn__icon {
+  font-size: 18px;
+  color: #666;
+}
+
+.likebtn--active .likebtn__icon {
+  color: #e74c3c;
+}
+
+.likebtn__count {
+  font-size: 10px;
+  font-weight: bold;
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  background: #fff;
+  padding: 0 3px;
+  border-radius: 4px;
+  color: #333;
+}
+
+/* Responsive Grid overrides */
+@media (min-width: 768px) {
+  .articles-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1024px) {
+  .articles-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
